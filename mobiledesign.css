@@ -1,0 +1,85 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000;
+  color: azure;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  position: relative;
+  background-color: #222;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#nav-toggle {
+  display: none;
+}
+
+label.navimg {
+  display: block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background: url('https://cdn.dribbble.com/users/360093/screenshots/4726071/hamburgermenu.gif') no-repeat center/contain;
+  z-index: 10;
+  margin-bottom: 10px;
+}
+
+nav {
+  display: none;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  background-color: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  display: block;
+}
+
+nav a:hover {
+  background-color: #000;
+}
+
+/* Show nav when checkbox is checked */
+#nav-toggle:checked + label.navimg + nav {
+  display: flex;
+}
+
+/* Desktop version: always show nav, hide hamburger */
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  label.navimg {
+    display: none;
+  }
+
+  nav {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: none;
+    width: auto;
+    padding: 0;
+  }
+
+  nav a {
+    padding: 10px 15px;
+  }
+}
